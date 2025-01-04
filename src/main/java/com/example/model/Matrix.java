@@ -9,6 +9,11 @@ public class Matrix {
 	public Matrix() {
 	}
 
+
+
+
+
+	
 	public double[][] getData() {
 		return data;
 	}
