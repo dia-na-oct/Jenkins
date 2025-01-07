@@ -21,6 +21,13 @@ pipeline {
                 }
             }
         }
+        stage('Build') {
+    steps {
+        script {
+            bat './gradlew build'
+        }
+    }
+}
              stage('sonar') {
             steps {
                 withSonarQubeEnv('sonar') {
