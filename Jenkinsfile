@@ -67,7 +67,7 @@ stage('Build') {
     }
      post {
             success {
-            slackSend(channel: '#test', color: 'good', message: "Build #${env.BUILD_NUMBER} succeeded: ${env.BUILD_URL}")
+            slackSend(channel: '#test', color: 'good', message: "Build hello #${env.BUILD_NUMBER} succeeded: ${env.BUILD_URL}")
         }
         failure {
             slackSend(channel: '#test', color: 'danger', message: "Build #${env.BUILD_NUMBER} failed: ${env.BUILD_URL}")
