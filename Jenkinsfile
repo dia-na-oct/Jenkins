@@ -22,48 +22,7 @@ pipeline {
             }
         }
  
-             stage('sonar') {
-            steps {
-                withSonarQubeEnv('sonar') {
-                    bat './gradlew sonar '
-                }
-            }
-        }
-    /*    stage('Quality Gate') {
-            steps {
-                script {
-                    withSonarQubeEnv('sonarqube') {
-                        timeout(time: 1, unit: 'MINUTES') {
-                            def qg = waitForQualityGate()
-                            if (qg.status != 'OK') {
-                                error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
-stage('Build') {
-                      steps {
-                          script {
-                              bat './gradlew jar'
-                              bat './gradlew javadoc'
-                          }
-                      }
-                      post {
-                          success {
-                              archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
-                              archiveArtifacts artifacts: 'build/docs/javadoc/**/*', fingerprint: true
-                          }
-                      }
-                  }
-   stage('Deployy') {
-            steps {
-                echo 'Deploying to MyMavenRepo...'
-                bat "./gradlew publish"
-            }
-        }
-
+        
     }
      post {
             success {
