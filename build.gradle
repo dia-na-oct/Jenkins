@@ -40,7 +40,7 @@ jacocoTestReport {
 sonar {
   properties {
     property "sonar.projectKey", "gradleproject"
-    property "sonar.host.url", "http://197.140.142.82:9000"
+    property "sonar.host.url", "localhost:9000"
     property "sonar.sources", "src/main/java"
 
       
