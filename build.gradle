@@ -44,7 +44,7 @@ sonar {
     property "sonar.sources", "src/main/java"
 
         property "sonar.projectName", "gradleproject"
-        property "sonar.skipCompile", "true"
+        property "sonar.skipCompile", "false"
         property "sonar.projectVersion", "1.0"
         property "sonar.sources", "src/main/java"
         property "sonar.tests", "src/test/java"
