@@ -43,5 +43,11 @@ stage('Build') {
                           }
                       }
                   }
+   stage('Deployy') {
+            steps {
+                echo 'Deploying to MyMavenRepo...'
+                bat "./gradlew publish"
+            }
+        }
     }
 }
