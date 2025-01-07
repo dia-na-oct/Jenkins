@@ -73,6 +73,7 @@ stage('Build') {
             subject: "Build #${env.BUILD_NUMBER} Succeeded",
             body: "Good news! The build succeeded. Check it here: ${env.BUILD_URL}"
         )
+                archiveArtifacts artifacts: 'build/**/*', fingerprint: true
         }
         failure {
             slackSend(channel: '#test', color: 'danger', message: "Build hhhh #${env.BUILD_NUMBER} failed: ${env.BUILD_URL}")
