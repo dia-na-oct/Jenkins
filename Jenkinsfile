@@ -21,13 +21,7 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-    steps {
-        script {
-            bat './gradlew build'
-        }
-    }
-}
+ 
              stage('sonar') {
             steps {
                 withSonarQubeEnv('sonar') {
@@ -35,5 +29,19 @@ pipeline {
                 }
             }
         }
+stage('Build') {
+                      steps {
+                          script {
+                              bat './gradlew jar'
+                              bat './gradlew javadoc'
+                          }
+                      }
+                      post {
+                          success {
+                              archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
+                              archiveArtifacts artifacts: 'build/docs/javadoc/**/*', fingerprint: true
+                          }
+                      }
+                  }
     }
 }
