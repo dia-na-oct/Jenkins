@@ -43,6 +43,8 @@ sonar {
     property "sonar.host.url", "localhost:9000"
     property "sonar.sources", "src/main/java"
   property "sonar.login", "f994ff4fd63635928b3adcb38de45943b79f380d"
+      property "sonar.java.coveragePlugin", "jacoco"
+    property "sonar.jacoco.reportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
   }
 
 }
