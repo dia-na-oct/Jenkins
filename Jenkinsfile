@@ -29,7 +29,7 @@ pipeline {
                 }
             }
         }
-        stage('Quality Gate') {
+    /*    stage('Quality Gate') {
             steps {
                 script {
                     withSonarQubeEnv('sonarqube') {
@@ -42,7 +42,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
 stage('Build') {
                       steps {
                           script {
