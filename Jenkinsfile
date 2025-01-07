@@ -63,21 +63,6 @@ stage('Build') {
                 bat "./gradlew publish"
             }
         }
- post {
-        success {
-            emailext(
-                subject: "Build Success: ${currentBuild.fullDisplayName}",
-                body: "The build ${currentBuild.fullDisplayName} was successful.",
-                to: 'd_guitoun@esi.dz'
-            )
-        }
-        failure {
-            emailext(
-                subject: "Build Failed: ${currentBuild.fullDisplayName}",
-                body: "The build ${currentBuild.fullDisplayName} has failed.",
-                to: 'd_guitoun@esi.dz'
-            )
-        }
-    }
+
     }
 }
