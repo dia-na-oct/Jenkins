@@ -51,6 +51,24 @@ tasks.test {
 }
 project.tasks["sonar"].dependsOn "jacocoTestReport"
 
+publishing {
+  repositories {
+    maven {
+      url 'https://mymavenrepo.com/repo/K6vvpwB5WPwMx1tnzXmE/'
+      credentials {
+        username 'myMavenRepo'
+        password 'test'
+      }
+    }
+  }
+
+  publications {
+    maven(MavenPublication) {
+      from components.java
+    }
+  }
+}
+
 dependencies {
     testImplementation 'io.cucumber:cucumber-java:6.0.0'
     testImplementation 'io.cucumber:cucumber-junit:6.0.0'
